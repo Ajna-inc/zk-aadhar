@@ -1,0 +1,69 @@
+{
+  "name": "@ajna-inc/zk-aadhar",
+  "version": "0.1.0",
+  "description": "Zero-knowledge proof system for India's Aadhaar offline KYC verification",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "napi": {
+    "name": "aadhar-zk",
+    "triples": {
+      "defaults": true,
+      "additional": [
+        "aarch64-apple-darwin",
+        "aarch64-unknown-linux-gnu",
+        "aarch64-unknown-linux-musl",
+        "aarch64-pc-windows-msvc",
+        "x86_64-unknown-linux-musl"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "napi build --platform --release --strip",
+    "build:debug": "napi build --platform",
+    "test": "node test.js",
+    "version": "napi version"
+  },
+  "keywords": [
+    "aadhar",
+    "aadhaar",
+    "zero-knowledge",
+    "zk-proof",
+    "privacy",
+    "india",
+    "kyc",
+    "stark",
+    "didcomm",
+    "plonky3",
+    "verifiable-credentials",
+    "ssi",
+    "decentralized-identity"
+  ],
+  "author": "Ajna Inc <vinaysingh8866@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajna-inc/offline-aadhar-poe"
+  },
+  "bugs": {
+    "url": "https://github.com/ajna-inc/offline-aadhar-poe/issues"
+  },
+  "homepage": "https://github.com/ajna-inc/offline-aadhar-poe#readme",
+  "devDependencies": {
+    "@napi-rs/cli": "^2.18.0"
+  },
+  "engines": {
+    "node": ">= 14"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ]
+}

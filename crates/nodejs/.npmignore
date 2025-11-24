@@ -1,0 +1,16 @@
+# Test files
+test.js
+test-xml.txt
+test-xml-base64.txt
+
+# Build artifacts
+target/
+*.profraw
+
+# Development
+.DS_Store
+node_modules/
+
+# Sensitive data
+*.zip
+offlineaadhaar*

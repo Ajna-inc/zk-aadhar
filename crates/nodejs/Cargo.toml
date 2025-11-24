@@ -1,0 +1,26 @@
+[package]
+name = "aadhar-zk-nodejs"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Node.js bindings for Aadhar ZK Proof System"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+aadhar-core = { path = "../core" }
+napi = { version = "2.16.0", default-features = false, features = ["napi8", "error_anyhow"] }
+napi-derive = "2.16.0"
+serde_json = "1.0"
+hex = "0.4"
+base64 = "0.22"
+p3-mersenne-31 = { git = "https://github.com/Plonky3/Plonky3" }
+p3-field = { git = "https://github.com/Plonky3/Plonky3" }
+
+[build-dependencies]
+napi-build = "2.1.0"
+
+[profile.release]
+lto = true
+strip = true
