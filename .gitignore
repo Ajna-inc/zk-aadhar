@@ -1,0 +1,22 @@
+/target
+
+# Sensitive Aadhaar data - NEVER commit these!
+*.zip
+**/test-xml.txt
+**/test-xml-base64.txt
+**/offlineaadhaar*.zip
+**/offlineaadhaar*.xml
+
+# Node.js
+node_modules/
+*.node
+
+# Build artifacts
+*.o
+*.so
+*.dylib
+*.dll
+
+# Test artifacts
+*.bin
+test_claims*.json
