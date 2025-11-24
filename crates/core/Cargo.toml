@@ -1,0 +1,48 @@
+[package]
+name = "aadhar-core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+# Workspace dependencies
+rsa.workspace = true
+sha1.workspace = true
+sha2.workspace = true
+digest.workspace = true
+x509-parser.workspace = true
+num-bigint-dig.workspace = true
+quick-xml.workspace = true
+zip.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+thiserror.workspace = true
+hex.workspace = true
+base64.workspace = true
+chrono.workspace = true
+tempfile.workspace = true
+xml_c14n.workspace = true
+log.workspace = true
+
+# Plonky3 dependencies
+p3-air.workspace = true
+p3-field.workspace = true
+p3-matrix.workspace = true
+p3-mersenne-31.workspace = true
+p3-uni-stark.workspace = true
+p3-poseidon2.workspace = true
+p3-keccak.workspace = true
+p3-symmetric.workspace = true
+p3-fri.workspace = true
+p3-circle.workspace = true
+p3-merkle-tree.workspace = true
+p3-commit.workspace = true
+p3-challenger.workspace = true
+p3-dft.workspace = true
+p3-util.workspace = true
+bincode.workspace = true
+
+[dev-dependencies]
+env_logger.workspace = true
