@@ -99,9 +99,9 @@ fn verify_digest_value(xml_content: &str) -> Result<()> {
         log::warn!("✗ DigestValue mismatch");
         log::warn!("  Expected: {}", hex::encode(&expected_digest_bytes));
         log::warn!("  Actual:   {}", hex::encode(&actual_digest));
-        // Don't fail verification since we already verified the signature
-        // The DigestValue check is additional validation
-        Ok(())
+        Err(AadharError::SignatureVerificationFailed(
+            "DigestValue does not match XML content hash".to_string()
+        ))
     }
 }
 

@@ -57,6 +57,8 @@ pub fn parse_aadhar_zip(zip_path: &str, share_code: &str) -> Result<AadharData> 
 pub fn parse_aadhar_zip_from_bytes(zip_bytes: &[u8], share_code: &str) -> Result<AadharData> {
     log::info!("Parsing Aadhar ZIP from bytes, size: {}", zip_bytes.len());
 
+    validate_share_code(share_code)?;
+
     let cursor = Cursor::new(zip_bytes);
     let mut archive = ZipArchive::new(cursor)?;
 
@@ -66,11 +68,18 @@ pub fn parse_aadhar_zip_from_bytes(zip_bytes: &[u8], share_code: &str) -> Result
         ));
     }
 
-    let mut zip_file = archive.by_index_decrypt(0, share_code.as_bytes())
+    let zip_file = archive.by_index_decrypt(0, share_code.as_bytes())
         .map_err(|_| AadharError::InvalidShareCode)?;
 
     let mut xml_content = String::new();
-    zip_file.read_to_string(&mut xml_content)?;
+    let mut limited_reader = zip_file.take(MAX_XML_SIZE);
+    let bytes_read = limited_reader.read_to_string(&mut xml_content)?;
+
+    if bytes_read as u64 >= MAX_XML_SIZE {
+        return Err(AadharError::FileTooLarge(
+            format!("XML file exceeds maximum size of {} MB", MAX_XML_SIZE / (1024 * 1024))
+        ));
+    }
 
     log::debug!("Extracted XML, size: {} bytes", xml_content.len());
 
