@@ -1,6 +1,6 @@
 {
   "name": "@ajna-inc/zk-aadhar",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Zero-knowledge proof system for India's Aadhaar offline KYC verification",
   "main": "index.js",
   "types": "index.d.ts",
@@ -42,12 +42,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ajna-inc/offline-aadhar-poe"
+    "url": "https://github.com/Ajna-inc/zk-aadhar"
   },
   "bugs": {
-    "url": "https://github.com/ajna-inc/offline-aadhar-poe/issues"
+    "url": "https://github.com/Ajna-inc/zk-aadhar/issues"
   },
-  "homepage": "https://github.com/ajna-inc/offline-aadhar-poe#readme",
+  "homepage": "https://github.com/Ajna-inc/zk-aadhar#readme",
   "devDependencies": {
     "@napi-rs/cli": "^2.18.0"
   },

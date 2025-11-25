@@ -9,7 +9,6 @@ Zero-knowledge proof system for India's Aadhaar offline KYC verification using S
 - 🔒 **Digital Signature Verification** - Validates UIDAI's RSA signature
 - 🌐 **DIDComm Compatible** - Proof-of-Execution format support
 - 🚫 **Replay Protection** - Context binding prevents proof reuse
-- 📱 **Mobile-Ready** - Works with Ascar DB for secure storage
 
 ## Installation
 
@@ -140,24 +139,6 @@ Verifies an age threshold proof.
 
 Returns the library version.
 
-## Mobile Integration with Ascar DB
-
-```javascript
-// 1. Extract XML from offline KYC ZIP
-const xmlContent = extractFromZip(zipFile, shareCode);
-
-// 2. Base64-encode for Ascar DB storage
-const xmlBase64 = Buffer.from(xmlContent).toString('base64');
-await ascarDb.store('aadhar_xml', xmlBase64);
-
-// 3. Later: Retrieve and decode
-const storedBase64 = await ascarDb.retrieve('aadhar_xml');
-const xmlString = Buffer.from(storedBase64, 'base64').toString('utf-8');
-
-// 4. Generate proof
-const proof = proveAgeThreshold(xmlString, 18, context);
-```
-
 ## Performance
 
 Benchmarked on Apple M-series (arm64):
@@ -191,7 +172,6 @@ See `example.js` for complete usage examples including:
 - Proof generation
 - DIDComm responses
 - Proof verification
-- Mobile workflow simulation
 
 ## License
 
@@ -199,8 +179,8 @@ MIT
 
 ## Links
 
-- [GitHub](https://github.com/ajna-inc/offline-aadhar-poe)
-- [Issues](https://github.com/ajna-inc/offline-aadhar-poe/issues)
+- [GitHub](https://github.com/Ajna-inc/zk-aadhar)
+- [Issues](https://github.com/Ajna-inc/zk-aadhar/issues)
 - [DIDComm Spec](https://didcomm.org/)
 
 ## Warning

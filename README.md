@@ -16,8 +16,8 @@ All proofs are cryptographically secure using STARK (Scalable Transparent Argume
 Requirements: Rust 1.83 or later
 
 ```bash
-git clone https://github.com/your-org/offline-aadhar-poe.git
-cd offline-aadhar-poe
+git clone https://github.com/Ajna-inc/zk-aadhar.git
+cd zk-aadhar
 cargo build --release
 cargo install --path crates/cli
 ```
